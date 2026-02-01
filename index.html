@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For Fatima ❤️</title>
+  <title>For Fatima 🧸❤️</title>
 
   <style>
     body {
@@ -15,13 +15,13 @@
     }
 
     h1 {
-      margin-top: 120px;
+      margin-top: 80px;
       color: #e60073;
-      font-size: 48px;
+      font-size: 46px;
     }
 
     .buttons {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     button {
@@ -44,11 +44,22 @@
       position: absolute;
     }
 
+    /* Teddy Bear */
+    .teddy {
+      font-size: 90px;
+      animation: bounce 2s infinite;
+      margin-top: 20px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
     /* Floating hearts */
     .heart {
       position: absolute;
-      color: pink;
-      font-size: 24px;
+      font-size: 26px;
       animation: float 6s linear infinite;
     }
 
@@ -62,9 +73,18 @@
         opacity: 0;
       }
     }
+
+    /* Floating teddy */
+    .floating-teddy {
+      position: absolute;
+      font-size: 50px;
+      animation: float 8s linear infinite;
+    }
   </style>
 </head>
 <body>
+
+  <div class="teddy">🧸</div>
 
   <h1>Fatima 💖<br>Will you be my Valentine?</h1>
 
@@ -76,7 +96,7 @@
   </div>
 
   <script>
-    // Make "No" button run away
+    // Runaway No button
     const noButton = document.getElementById("no");
 
     noButton.addEventListener("mouseover", () => {
@@ -86,7 +106,7 @@
       noButton.style.top = y + "px";
     });
 
-    // Floating hearts generator
+    // Floating hearts
     function createHeart() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
@@ -95,12 +115,23 @@
       heart.style.animationDuration = Math.random() * 3 + 4 + "s";
       document.body.appendChild(heart);
 
-      setTimeout(() => {
-        heart.remove();
-      }, 7000);
+      setTimeout(() => heart.remove(), 7000);
+    }
+
+    // Floating teddy bears
+    function createTeddy() {
+      const teddy = document.createElement("div");
+      teddy.classList.add("floating-teddy");
+      teddy.innerHTML = "🧸";
+      teddy.style.left = Math.random() * 100 + "vw";
+      teddy.style.animationDuration = Math.random() * 4 + 6 + "s";
+      document.body.appendChild(teddy);
+
+      setTimeout(() => teddy.remove(), 9000);
     }
 
     setInterval(createHeart, 300);
+    setInterval(createTeddy, 2000);
   </script>
 
 </body>
